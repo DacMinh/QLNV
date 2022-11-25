@@ -10,16 +10,20 @@ function  Staff (account,fullName,Email,workDay,position,basicSalary,workingHour
     this.workingHoursPerMonth = workingHoursPerMonth;
     this.totalSalary = function(){
         var basicSalary = + document.getElementById ("luongCB").value;
-        var position =document.getElementById("chucvu").value; 
+        var positionSelect =document.getElementById("chucvu").value; 
+        var positionOptions = positionSelect.selectedOptions;
        
-        
+       
 
         var  totalSalary=0
-        if(Manger.check ===true) {
-            totalSalary = basicSalary*3
-        } else if (manger.check ===true){
-            totalSalary = basicSalary*2
-        }else{totalSalary = basicSalary*1}
+        for (let i = 0 ; i < positionOptions.length ; i++){
+            if(selectedOptions[i]==="Sếp") {
+                totalSalary = basicSalary*3
+            } else if (selectedOptions[i]==="Trưởng phòng"){
+                totalSalary = basicSalary*2
+            }else{totalSalary = basicSalary*1};
+        };return totalSalary
+    
 
     }
 
@@ -35,7 +39,7 @@ function  Staff (account,fullName,Email,workDay,position,basicSalary,workingHour
             typeOfEmployee = "nhân viên giỏi"
         }else if (workingHoursPerMonth >= 160) {
             typeOfEmployee = "nhân viên khá"
-        }else {typeOfEmployee = "nhân viên trung bình"};
+        }else {typeOfEmployee = "nhân viên trung bình"};return typeOfEmployee
          
 
     }
@@ -44,3 +48,4 @@ function  Staff (account,fullName,Email,workDay,position,basicSalary,workingHour
 
 
 }
+ 
